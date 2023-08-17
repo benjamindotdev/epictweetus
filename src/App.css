@@ -1,0 +1,178 @@
+body {
+  background: #404040;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.tweet-card {
+  min-height: 700px;
+  width: 800px;
+  border-radius: 16px;
+  background: #484848;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  filter: drop-shadow(30px 30px #202020)
+}
+
+.row {
+  padding: 10px;
+  margin: 0px 50px;
+}
+
+.author-row {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  margin: 50px 50px 0px 50px;
+}
+
+.author-middle {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.author-name {
+  margin: 0;
+}
+
+.author-handle {
+  margin: 0;
+}
+
+.author-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.follow-button {
+  height: 50px;
+  width: 150px;
+  background-color: #E0E0E0;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+
+  border-radius: 16px;
+  transition: all 300ms;
+}
+
+.logo:hover {
+  scale: 1.1;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(1) .logo {
+    animation: logo-spin infinite 20s linear;
+    padding: 10px;
+    margin: 10px;
+  }
+}
+
+.benjamin {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: all 300ms;
+  align-self: center
+}
+
+.follow-text {
+  align-self: center
+}
+
+.author-image {
+  height: 6em;
+  width: 6em;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.quote-row {
+  margin: 0px 50px;
+}
+
+.interaction-row {
+  border-top: 1px solid #202020;
+  border-bottom: 1px solid #202020;
+  margin: 0px 50px;
+  display: grid;
+  grid-template-columns: 30% 70%;
+
+}
+
+.interaction-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.interaction-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.interaction-text {
+  text-transform: uppercase;
+}
+
+.interaction-number {
+  justify-self: flex-start;
+}
+
+.interaction-thumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 1px solid #202020;
+  gap: 20px;
+}
+
+.thumb {
+  border-radius: 50px;
+  height: 50px;
+
+}
+
+.thumb:nth-child(1) {
+  margin-left: 50px;
+}
+
+.time-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
