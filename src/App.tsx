@@ -1,21 +1,5 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
-import benjamin from './assets/Benjamin.jpg'
-import reactLogo from './assets/react.svg'
 import './App.css'
-
-type Quote = {
-  author: any
-  quote: string
-}
-
-type Image = {
-  urls: {
-    thumb: string
-  }
-  downloads: string
-  likes: string
-}
 
 function App() {
 
@@ -70,11 +54,11 @@ function App() {
           </div>
           <div className='author-right'>
             <a href="www.react.dev" target="_blank">
-              <img src={reactLogo} className='logo' />
+              <img src="react.svg" className='logo' />
             </a>
             <a href="https://benjaminelliott.dev" target="_blank">
             <button className='follow-button'>
-              <img src={benjamin} className="benjamin" alt="Vite logo" />
+              <img src="benjamin.jpg" className="benjamin" alt="Hello" />
               <p className="follow-text">Follow</p>
               </button>
             </a>
