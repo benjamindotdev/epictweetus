@@ -1,7 +1,13 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { useSpring, animated } from '@react-spring/web';
+import './App.css';
 
 function App() {
+
+  const springs = useSpring({
+    from: { opacity: 0, scale: 0.1 },
+    to: { opacity: 1, scale: 1 },
+})
 
   const [quote, setQuote] = useState({
     author: "",
@@ -12,7 +18,8 @@ function App() {
       thumb: ""
     },
     downloads: "",
-    likes: ""
+    likes: "",
+    id: ""
   });
 
   useEffect(() => {
@@ -45,11 +52,13 @@ function App() {
 
   return (
     <>
-      <section className='tweet-card'>
+      <animated.section className='tweet-card' style={{...springs}}>
         <div className="author-row row">
-        <img loading="lazy" src={image.urls.thumb || ""} className='author-image'/>
+          <a href={"https://unsplash.com/photos/" + image.id} target="_blank">
+            <img loading="lazy" src={image.urls.thumb || ""} className='author-image'/>
+          </a>
           <div className='author-middle'>
-            <h3 className='author-name'>{quote.author}</h3>
+            <a href={"https://www.google.com/search?q="+ quote.author + " philosophy"} target="_blank"><h3 className='author-name'>{quote.author}</h3></a>
             <p className='author-handle'>@{quote.author.toLowerCase().split(' ')}69</p>
           </div>
           <div className='author-right'>
@@ -57,9 +66,9 @@ function App() {
               <img src="react.svg" className='logo' />
             </a>
             <a href="https://benjaminelliott.dev" target="_blank">
-            <button className='follow-button'>
-              <img src="benjamin.jpg" className="benjamin" alt="Hello" />
-              <p className="follow-text">Follow</p>
+              <button className='follow-button'>
+                <img src="benjamin.jpg" className="benjamin" alt="Hello" />
+                <p className="follow-text">Follow</p>
               </button>
             </a>
           </div>
@@ -81,7 +90,9 @@ function App() {
           <div className='interaction-thumbs'>
             {
              thumbs.map(thumb =>
+              <a href="https://picsum.photos" target="_blank">
                 <img src={"https://picsum.photos/50?random=" + thumb} key={thumb} className='thumb'/>
+              </a>
               )
             }
           </div>
@@ -89,7 +100,7 @@ function App() {
         <div className="time-row row">
           <p>{date}</p>
         </div>
-      </section>
+      </animated.section>
     </>
   )
 }
