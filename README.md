@@ -6,6 +6,6 @@ Epictweetus reminds you that despite the debugging and type errors, there is alw
 
 ## Three API calls:
 
-1 Unplash for the author image
-1 stoic-quote-lambda-public-api for the quotes
-1 Random Data API for the user thumbnails
+1. Unplash for the author image
+1. stoic-quote-lambda-public-api for the quotes
+1. Random Data API for the user thumbnails
