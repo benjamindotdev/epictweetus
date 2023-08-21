@@ -21,6 +21,21 @@ function App() {
     likes: "",
     id: ""
   });
+  const [users, setUsers] = useState([
+    {
+      avatar: "",
+      firstName: "",
+      lastName: "",
+      userName: "",
+      employmentTitle: ""
+    }
+  ])
+
+  const date = new Date().toLocaleString();
+
+  const randomNumber = () => {
+   return Math.floor(Math.random() * 6)
+  }
 
   useEffect(() => {
     const fetchQuote = async () => {
@@ -46,9 +61,17 @@ function App() {
     .catch(console.error);
  }, []);
 
- const thumbs = [1,2,3,4]
-
- const date = new Date().toLocaleString();
+ useEffect(() => {
+  const fetchUsers = async () => {
+    const response = await fetch(
+       'https://random-data-api.com/api/v2/users?size=' + randomNumber() + '&response_type=json'
+    );
+    const usersData = await response.json();
+    setUsers(usersData);
+ };
+  fetchUsers()
+    .catch(console.error);
+ }, []);
 
   return (
     <>
@@ -89,9 +112,9 @@ function App() {
           </div>
           <div className='interaction-thumbs'>
             {
-             thumbs.map(thumb =>
-              <a href="https://picsum.photos" target="_blank">
-                <img src={"https://picsum.photos/50?random=" + thumb} key={thumb} className='thumb'/>
+             users.map(user =>
+              <a href={user.avatar} target="_blank">
+                <img src={user.avatar} className='thumb'/>
               </a>
               )
             }
