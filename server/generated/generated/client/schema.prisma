@@ -1,0 +1,65 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["deno"]
+  output          = "../generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DIRECT_URL")
+}
+
+model User {
+  id              String   @id @default(cuid())
+  email           String   @unique
+  username        String   @unique
+  password        String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  submittedTweets Tweet[]  @relation("submittedTweets")
+  likedTweets     Tweet[]  @relation("LikedTweets")
+  Like            Like[]
+}
+
+model Author {
+  id          String       @id @default(cuid())
+  name        String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  tweets      Tweet[]
+  yearOfBirth Int
+  yearOfDeath Int
+  nationality String
+  profession  Profession[]
+}
+
+model Profession {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authors   Author[]
+}
+
+model Tweet {
+  id          String   @id @default(cuid())
+  text        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  author      Author   @relation(fields: [authorId], references: [id])
+  authorId    String
+  submittor   User     @relation("submittedTweets", fields: [submittorId], references: [id])
+  submittorId String
+  likes       Like[]
+  User        User[]   @relation("LikedTweets")
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  tweet     Tweet    @relation(fields: [tweetId], references: [id])
+  tweetId   String
+}
