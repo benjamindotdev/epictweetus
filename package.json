@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "name": "epictweetus",
+  "version": "1.0.0",
+  "description": "Classical wisdom for the modern world",
+  "main": " ",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "concurrently \"cd server && deno run dev\" \"cd client && npm run dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjamindotdev/epictweetus.git"
+  },
+  "author": "benjamindotdev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benjamindotdev/epictweetus/issues"
+  },
+  "homepage": "https://github.com/benjamindotdev/epictweetus#readme"
+}

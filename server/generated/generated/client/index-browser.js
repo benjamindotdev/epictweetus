@@ -131,12 +131,30 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.AuthorScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  yearOfBirth: 'yearOfBirth',
+  yearOfDeath: 'yearOfDeath',
+  nationality: 'nationality'
+};
+
+exports.Prisma.ProfessionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.TweetScalarFieldEnum = {
   id: 'id',
   text: 'text',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  authorId: 'authorId'
+  authorId: 'authorId',
+  submittorId: 'submittorId'
 };
 
 exports.Prisma.LikeScalarFieldEnum = {
@@ -160,6 +178,8 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   User: 'User',
+  Author: 'Author',
+  Profession: 'Profession',
   Tweet: 'Tweet',
   Like: 'Like'
 };

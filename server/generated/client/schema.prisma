@@ -16,9 +16,29 @@ model User {
   password       String
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
-  authoredTweets Tweet[]  @relation("AuthoredTweets")
+  submittedTweets Tweet[]  @relation("submittedTweets")
   likedTweets    Tweet[]  @relation("LikedTweets")
   Like           Like[]
+}
+
+model Author  {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tweets   Tweet[]
+  yearOfBirth Int
+  yearOfDeath Int
+  nationality String
+  profession Profession[]
+}
+
+model Profession {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authors   Author[]
 }
 
 model Tweet {
@@ -26,8 +46,10 @@ model Tweet {
   text      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  author    User     @relation("AuthoredTweets", fields: [authorId], references: [id])
+  author    Author   @relation(fields: [authorId], references: [id])
   authorId  String
+  submittor    User     @relation("submittedTweets", fields: [submittorId], references: [id])
+  submittorId  String
   likes     Like[]
   User      User[]   @relation("LikedTweets")
 }
