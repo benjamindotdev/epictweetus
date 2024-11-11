@@ -10,7 +10,7 @@ const Header = () => {
         <NavLink
           key={index}
           to={link.url}
-          className={({ isActive, isPending }) =>
+          className={({ isActive }) =>
             `flex flex-row items-center justify-center h-12 gap-4 rounded-xl px-4 transition-all ease-in-out delay-150 ${
               isActive ? "bg-zinc-950 text-zinc-100" : ""
             }`

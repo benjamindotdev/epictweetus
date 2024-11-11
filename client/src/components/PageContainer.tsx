@@ -11,14 +11,13 @@ export const PageContainer = ({
   const springs = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
-    delay: 200,
-    time: 2000,
+    delay: 400,
   });
 
   return (
     <animated.div
       style={springs}
-      className="flex flex-col justify-between w-full h-full items-center"
+      className="flex flex-col justify-start w-full h-full items-center gap-12 pt-6"
     >
       <h1 className="text-4xl font-bold font-serif">{pageName}</h1>
       {children}
