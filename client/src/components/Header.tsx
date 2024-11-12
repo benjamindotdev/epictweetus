@@ -11,8 +11,8 @@ const Header = () => {
           key={index}
           to={link.url}
           className={({ isActive }) =>
-            `flex flex-row items-center justify-center h-12 gap-4 rounded-xl px-4 transition-all ease-in-out delay-150 ${
-              isActive ? "bg-zinc-950 text-zinc-100" : ""
+            `flex flex-row items-center justify-center h-12 gap-4 rounded-xl px-4 transition-all ease-in-out delay-150 font-bold font-mono ${
+              isActive ? "bg-zinc-950 text-zinc-100 scale-150" : ""
             }`
           }
         >

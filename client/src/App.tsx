@@ -10,6 +10,8 @@ import Tweets from "./pages/Tweets";
 import TweetProfile from "./pages/TweetProfile";
 import TweetCreate from "./pages/TweetCreate";
 import About from "./pages/About";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/tweets/new" element={<TweetCreate />} />
         <Route path="/tweets/:id" element={<TweetProfile />} />
         <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </main>
   );
